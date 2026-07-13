@@ -45,7 +45,7 @@ class Rick_And_Morty:
             async with session.get(f"{self.URL}/character/?name={name}", ssl=False) as response:
                 if response.status == 200:
                     data = await response.json()
-                    return f"Полученные данные, {data}"
+                    return data["results"]
                 else:
                     return f"Ошибка: {response.status}"
 
@@ -64,4 +64,3 @@ class Rick_And_Morty:
                     return f"Полученные данные, {data}"
                 else:
                     return f"Ошибка: {response.status}"
-
